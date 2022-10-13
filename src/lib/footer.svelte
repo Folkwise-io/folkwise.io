@@ -118,10 +118,7 @@
 
   @media screen and (max-width: 768px) {
     .footer {
-      background-image: url('/assets/kikko-optimized.svg'),
-        linear-gradient(to left, colors.$medium, colors.$dark, colors.$dark, colors.$dark);
-      background-size: 150%, 100%;
-      background-position: 70% 30%, 0 0;
+      background-color: colors.$dark;
     }
   }
 </style>

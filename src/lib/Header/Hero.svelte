@@ -91,24 +91,36 @@
 
   @media screen and (max-width: 768px) {
     .hero {
-      margin-inline: -0.75rem;
-      background-image: linear-gradient(to top, colors.$white, colors.$white, colors.$light);
+      display: flex;
+      flex-direction: column;
+      // margin-inline: -0.75rem;
+      background-image: linear-gradient(to bottom, colors.$white, colors.$white, colors.$light);
       background-size: 100%;
     }
 
     .hero-container {
       display: flex;
       flex-direction: column;
-      padding: 2rem 0.75rem 0 0.75rem;
+      padding: 1rem 2rem;
     }
 
     .hero-text-container {
-      padding: 0;
+      max-width: 100%;
+      padding: 0.75rem;
+    }
+
+    .hero-title,
+    .sub-title {
+      color: colors.$dark;
     }
 
     .hero-title {
       font-size: 1.875rem;
       line-height: 1.875rem;
+    }
+
+    .hero-cta-container {
+      padding: 2rem 1rem 0 1rem;
     }
   }
 </style>

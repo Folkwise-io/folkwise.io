@@ -77,7 +77,7 @@
 
   .podcast-thumb {
     width: 100%;
-    box-shadow: 0 0 6px 2px colors.$medium;
+    box-shadow: 0 2px 8px 1px colors.$dark-85;
   }
 
   audio {
@@ -105,6 +105,25 @@
 
     p {
       font-size: 0.75rem;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .podcast-container {
+      flex-direction: column;
+      padding: 1rem;
+      border-radius: 0;
+      background-color: transparent;
+      background-image: none;
+    }
+
+    .info-container {
+      max-width: 100%;
+      gap: 1rem;
+    }
+
+    .guests-container {
+      grid-template-columns: 1fr 1fr;
     }
   }
 </style>

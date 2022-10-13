@@ -86,52 +86,6 @@
     <div class="team-container">
       {#each staffMembers as member}
         <StaffDisplay staffMember={member} displayConfig="about" />
-        <!-- <div class="team-member-container">
-          <img class="team-member-img" src={member.imgURL} alt="team member" />
-
-          <div class="team-member-info">
-            <h3>{member.firstName} {member.lastName}</h3>
-            <p class="bold-text">{member.role}</p>
-            <p class="base-text">{member.miniBio}</p>
-
-            {#if member.isAcceptingProjects === true}
-              <p class="bold-text accepting">{member.firstName} is accepting new projects!</p>
-            {:else}
-              <p class="bold-text not-accepting">
-                {member.firstName} isn't currently accepting new projects.
-              </p>
-            {/if}
-            <div class="social-container">
-              <p class="bold-text">Contact {member.firstName}:</p>
-              {#each iconOptions as option}
-                {#if option.hasProperty(member) && option.component != Email2}
-                  <a
-                    href={option.hasProperty(member) === 'true'
-                      ? '/contact'
-                      : option.hasProperty(member)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Icon>
-                      <svelte:component this={option.component} />
-                    </Icon>
-                  </a>
-                {:else if option.hasProperty(member)}
-                  <button
-                    on:click={() => {
-                      onClick();
-                      console.log(`About page staff member: ${member.firstName}`);
-                    }}
-                  >
-                    <Icon>
-                      <svelte:component this={option.component} />
-                    </Icon>
-                  </button>
-                {/if}
-              {/each}
-            </div>
-          </div>
-        </div> -->
       {/each}
     </div>
   </section>
@@ -165,75 +119,12 @@
     }
   }
 
-  // .section-content {
-  //   display: flex;
-  //   flex-direction: column;
-  //   gap: 1rem;
-  //   padding: 2rem 1rem;
-  //   background-color: colors.$white;
-  //   box-shadow: 0 4px 6px 0 colors.$dark;
-  // }
-
   .team-container {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     text-align: left;
   }
-
-  // .team-member-container {
-  //   display: grid;
-  //   grid-template-columns: 40% 55%;
-  //   grid-template-areas: 'img info';
-  //   gap: 1rem;
-  //   padding: 0.75rem;
-  //   background-color: colors.$white;
-  //   color: colors.$white;
-  //   box-shadow: 0 4px 6px 0 colors.$medium;
-  //   transition: all 300ms;
-  // }
-
-  // .team-member-img {
-  //   grid-area: img;
-  //   max-width: 100%;
-  //   box-shadow: 0 0 4px 0 colors.$dark;
-  // }
-
-  // .team-member-info {
-  //   grid-area: info;
-  //   display: flex;
-  //   flex-direction: column;
-  //   gap: 0.75rem;
-  //   width: 100%;
-  //   transition: all 300ms;
-
-  //   h3,
-  //   p {
-  //     margin: 0;
-  //   }
-  // }
-
-  // .social-container {
-  //   grid-area: socials;
-  //   display: flex;
-  //   gap: 0.75rem;
-  //   align-items: center;
-
-  //   button {
-  //     padding: 0;
-  //     background-color: transparent;
-  //     border: none;
-  //     outline: none;
-  //   }
-  // }
-
-  // .accepting {
-  //   color: colors.$highlight-green;
-  // }
-
-  // .not-accepting {
-  //   color: colors.$medium;
-  // }
 
   @media screen and (max-width: 768px) {
     .about-container {
@@ -245,10 +136,5 @@
         padding: 0.75rem;
       }
     }
-
-    // .team-member-container {
-    //   display: flex;
-    //   flex-direction: column;
-    // }
   }
 </style>

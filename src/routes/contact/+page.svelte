@@ -2,27 +2,34 @@
   import ContactForm from '../../lib/contact-form.svelte';
 </script>
 
-<div class="contact-container">
-  <section class="contact-section">
+<section class="contact-section">
+  <div class="contact-container">
     <ContactForm />
-  </section>
-</div>
+  </div>
+</section>
 
 <style type="scss">
   @use 'src/styles/colors' as colors;
 
+  .contact-section {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 1rem auto;
+  }
+
   .contact-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    max-width: 800px;
-    margin: 1rem auto;
+    align-self: center;
+    gap: 1rem;
+    // padding: 1rem;
     background-color: colors.$white;
+    box-shadow: 0 4px 6px 0 colors.$medium;
   }
 
   @media screen and (max-width: 768px) {
-    .contact-section {
+    section {
       padding: 0.75rem;
     }
   }

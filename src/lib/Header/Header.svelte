@@ -20,4 +20,12 @@
     background-position: left 2rem top -2rem;
     background-repeat: no-repeat;
   }
+
+  @media screen and (max-width: 767px) {
+    header {
+      background-image: none;
+      background-color: colors.$dark;
+      background-position: right 0 top 0;
+    }
+  }
 </style>

@@ -21,7 +21,9 @@
   @use 'src/styles/sizing' as sizing;
 
   .post {
-    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem auto;
     padding: 2rem;
     background-color: colors.$white;
     box-shadow: 0 4px 6px 0 colors.$medium;
@@ -60,7 +62,8 @@
 
   @media screen and (max-width: 768px) {
     .post {
-      padding: 1.5rem 0.75rem;
+      // margin: 1rem auto;
+      padding: 0.75rem;
     }
   }
 </style>

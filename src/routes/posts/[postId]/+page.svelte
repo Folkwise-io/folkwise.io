@@ -10,16 +10,18 @@
   export let data: Data;
 </script>
 
-<div class="single-post-container">
-  <a href="/blog" class="read-more">← Back to Blog</a>
-  {#await data.post}
-    <div>Loading...</div>
-  {:then}
-    <Post post={data.post} staffMember={data.staffMember} />
-  {:catch}
-    <div>An unexpected error occurred.</div>
-  {/await}
-</div>
+<section>
+  <div class="single-post-container">
+    <a href="/blog" class="read-more">← Back to Blog</a>
+    {#await data.post}
+      <div>Loading...</div>
+    {:then}
+      <Post post={data.post} staffMember={data.staffMember} />
+    {:catch}
+      <div>An unexpected error occurred.</div>
+    {/await}
+  </div>
+</section>
 
 <style lang="scss">
   @use 'src/styles/colors' as colors;
@@ -58,6 +60,12 @@
       background-color: colors.$dark;
       opacity: 0;
       transition: all 300ms;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    section {
+      padding: 0.75rem;
     }
   }
 </style>

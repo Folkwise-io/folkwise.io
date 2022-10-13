@@ -26,7 +26,18 @@
     flex-direction: column;
     gap: 0.875rem;
     margin: 0 auto;
-    width: 100%;
+  }
+
+  @media screen and (max-width: 767px) {
+    .post-content-container {
+      h1 {
+        font-size: 1.25rem;
+      }
+
+      em {
+        font-size: 0.85rem;
+      }
+    }
   }
   /* For some reason, SCSS doesn't work in this file. */
 </style>

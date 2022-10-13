@@ -69,10 +69,11 @@
     gap: 0;
     align-items: center;
     justify-content: space-between;
-    padding: 2rem sizing.$gutters;
+    padding: 2rem;
     max-width: 800px;
     margin: 0 auto;
     transition: all ease-in 300ms;
+
     &:hover .snippet-read-more {
       opacity: 1;
     }
@@ -81,6 +82,7 @@
   .text-container {
     display: flex;
     flex-direction: column;
+
     .title {
       margin-bottom: 0;
     }
@@ -130,18 +132,54 @@
 
   .podcast-section {
     margin: 0 auto;
-    padding: 2rem sizing.$gutters;
+    // padding: 2rem;
     max-width: 800px;
     // background-color: colors.$dark;
   }
 
   .playlist-container {
-    width: 100%;
+    // width: 100%;
     margin: 0 auto;
     padding: 0;
 
     h1 {
       margin-bottom: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .home {
+      border-top: 1px solid colors.$grey-50;
+    }
+
+    .blog-snippet {
+      display: flex;
+      flex-direction: column;
+
+      em {
+        margin-top: 0.5rem;
+        font-size: 0.85em;
+      }
+    }
+
+    .snippet-read-more {
+      opacity: 1;
+    }
+
+    .playlist-container {
+      background-image: linear-gradient(
+        100deg,
+        colors.$dark,
+        colors.$dark-85,
+        colors.$dark,
+        colors.$dark
+      );
+
+      h1 {
+        color: colors.$white;
+        padding: 1rem 1rem 0 1rem;
+        text-align: center;
+      }
     }
   }
 </style>

@@ -107,23 +107,6 @@
     }
   };
 
-  // const submitForm = async () => {
-  //   const response = await fetch('api/verify', {
-  //     method: 'POST',
-  //     credentials: 'omit',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //       name,
-  //       email,
-  //       message,
-  //       username,
-  //       response: hCaptchaResponse
-  //     })
-  //   });
-  // };
-
   const clearFormFields = () => {
     name = '';
     email = '';
@@ -135,14 +118,6 @@
       const { response: hCaptchaResponse } = (await hcaptcha.execute(hcaptchaWidgetID, {
         async: true
       })) as HCaptchaResponse;
-
-      // const responseObject = (await hcaptcha.execute(hcaptchaWidgetID, {
-      //   async: true
-      // })) as HCaptchaResponse;
-
-      // const response = responseObject.response;
-
-      // console.log(`Response: ${response: hCaptchaResponse}`);
 
       validateForm(name, email, message);
 
@@ -177,18 +152,18 @@
       notification = getNotification('error');
     }
   };
+
+  let vwidth: number;
 </script>
+
+<!-- Svelte's method for getting window properties: https://svelte.dev/tutorial/svelte-window-bindings -->
+<svelte:window bind:innerWidth={vwidth} />
 
 <svelte:head>
   <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 </svelte:head>
 
-<form
-  id="contact-form"
-  class="contact-form-container"
-  method="POST"
-  on:submit|preventDefault={handleSubmit}
->
+<form id="contact-form" class="contact-form" method="POST" on:submit|preventDefault={handleSubmit}>
   {#if staffMember}
     <h1>Contact {staffMember.firstName}</h1>
   {:else}
@@ -219,8 +194,8 @@
       bind:value={message}
       name="message"
       id="message"
-      cols="30"
-      rows="10"
+      rows="8"
+      cols={vwidth > 767 ? 30 : null}
       placeholder="Type your message"
       novalidate
     />
@@ -251,34 +226,33 @@
 <style type="scss">
   @use 'src/styles/colors' as colors;
 
-  .contact-form-container {
+  .contact-form {
     display: flex;
     flex-direction: column;
     align-self: center;
     gap: 1rem;
     padding: 1rem;
-    box-shadow: 0 4px 6px 0 colors.$medium;
+  }
 
-    button {
-      padding: 0.75rem 1.5rem;
-      color: colors.$highlight;
-      background-color: colors.$dark;
-      font-weight: 700;
-      text-decoration: none;
-      border-radius: 4px;
-      border: none;
-      outline: none;
-      transition: all 300ms;
+  button {
+    padding: 0.75rem 1.5rem;
+    color: colors.$highlight;
+    background-color: colors.$dark;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    transition: all 300ms;
 
-      &:disabled {
-        color: colors.$medium;
-        background-color: colors.$grey;
-      }
+    &:disabled {
+      color: colors.$medium;
+      background-color: colors.$grey;
+    }
 
-      &:not(:disabled):hover {
-        color: colors.$dark;
-        background-color: colors.$highlight;
-      }
+    &:not(:disabled):hover {
+      color: colors.$dark;
+      background-color: colors.$highlight;
     }
   }
 
@@ -319,8 +293,12 @@
   }
 
   @media screen and (max-width: 768px) {
-    .contact-form-container {
-      padding: 0.25rem;
+    .contact-form {
+      padding: 0.75rem;
+
+      h1 {
+        font-size: 1.25rem;
+      }
     }
   }
 </style>
